@@ -1,12 +1,7 @@
 import styled from "styled-components";
 import {Character} from "../interfaces/Charcters.ts";
 
-const AllCharsDiv=styled.div`
-    display: flex;
-    flex-flow: row wrap;    
-    justify-content: space-evenly;
-    background-color: bisque;
-`;
+
 
 const SingleCharDiv=styled.div`
     display: flex;
@@ -15,28 +10,54 @@ const SingleCharDiv=styled.div`
     max-width: 30%;
     padding: 2%;
     margin: 1%;
-    border: 3px darkred solid;
-    font: italic small-caps bold calc(2px + 1vw) Papyrus, fantasy;
+    border: 3px #536f50 solid;
+    text-align: center;
+    background-color: #fdffe0;
+    
+`;
+
+
+
+
+const StyledDiv=styled.div`
+    display: flex;
+    flex-flow: row wrap;    
+    justify-content: space-evenly;    
+    padding: 20px;
+    background-color: #86a5a9;
+`;
+
+const StyledHeader = styled.h1`
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+
+`;
+
+
+const StyledParagraph = styled.p`
+    font-size: 1rem;
+    margin-bottom: 8px;
     text-align: center;
 `;
 
 export default function Botw(props : { data:Character[] } ){
     return (
-        <AllCharsDiv >
+        <StyledDiv >
             {
                 props.data.map((char: Character) => (
                 <SingleCharDiv key={char.id}>
-                    <h1>{char.name}</h1>
-                    <p>{char.description}</p>
+                    <StyledHeader>{char.name}</StyledHeader>
+                    <StyledParagraph>{char.description}</StyledParagraph>
                     <img src={char.image} alt={`Image of ${char.name}`} />
-                    <p> ID: {char.id}</p>
-                    <p>Category: {char.category}</p>
-                    <p>Common Locations: {char.common_locations}</p>
-                    <p>Drops: {char.drops}</p>
-                    <p>Edible: {char.edible ? "Yes" : "No"}</p>
+                    <StyledParagraph> ID: {char.id}</StyledParagraph>
+                    <StyledParagraph>Category: {char.category}</StyledParagraph>
+                    <StyledParagraph>Common Locations: {char.common_locations}</StyledParagraph>
+                    <StyledParagraph>Drops: {char.drops}</StyledParagraph>
+                    <StyledParagraph>Edible: {char.edible ? "Yes" : "No"}</StyledParagraph>
                 </SingleCharDiv>
                 ))
             }
-        </AllCharsDiv>
+        </StyledDiv>
     );
 }

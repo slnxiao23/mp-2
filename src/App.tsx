@@ -4,11 +4,16 @@ import { useEffect, useState } from "react";
 import { Character } from "./interfaces/Charcters.ts";
 
 
-// const ParentDiv=styled.div`
-//     width: 80vw;
-//     margin: auto;
-//     border: 5px darkgoldenrod solid;
-// `;
+const ParentDiv=styled.div`
+    width: 80vw;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #86a5a9;
+    border: 5px solid #536f50;
+    border-radius: 10px;
+    font: bold calc(2px + 1vw) Cursive, fantasy;
+`;
 
 export default function App() {
     // useState Hook to store Data.
@@ -32,10 +37,10 @@ export default function App() {
     }, []);
 
     return (
-        <div>
+        <ParentDiv>
             <h1>Breath of the Wild Creatures</h1>
             <Botw data={data} />
-        </div>
+        </ParentDiv>
     );
 }
 
